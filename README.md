@@ -13,7 +13,7 @@ Just run the mufasaSays file.
 $ ./mufasaSays
 
  __________________________________
-/ Look, Simba Everything the light \
+/ Look, Simba. Everything the light \
 \ touches is our kingdom.          /
  ----------------------------------
        \    ____
