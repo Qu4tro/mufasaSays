@@ -7,7 +7,7 @@ MufasaSays is a small bash script that uses cowsay and its default moofasa .cow 
 Usage
 ----------
 
-Just run the mufasaSays file
+Just run the mufasaSays file.
 
 ```
 $ ./mufasaSays
@@ -45,15 +45,17 @@ Troubleshoot
 ---------
 
 `cowsay: command not found`  
-[Install it](https://github.com/schacon/cowsay)
+[Install it.](https://github.com/schacon/cowsay)
 
 `cowsay: Could not find your cowfile!`  
 [Download it](https://github.com/schacon/cowsay/blob/master/cows/moofasa.cow) and move it to `/usr/share/cowfiles/cows/moosafa.cow`. This folder might change on your system, but should be something similar.
 
 Thank you
 ---------
-Cowsay devs
-Lion King crew
-And to the person who posted the [script online](http://www.angelfire.com/movies/disneybroadway/lionkingscript2.html)
+Cowsay devs.
+
+Lion King crew.
+
+And to the person who posted the [script online](http://www.angelfire.com/movies/disneybroadway/lionkingscript2.html).
 
 
