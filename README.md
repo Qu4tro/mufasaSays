@@ -5,20 +5,44 @@ A bash script that uses cowsay with the moofasa cow file to display wisdom from 
 ## Usage
 
 ```bash
+./mufasaSays [OPTIONS]
+```
+
+### Options
+
+| Option | Description |
+|--------|-------------|
+| `-n, --name NAME` | Name to use in quotes (default: Simba) |
+| `-e, --eyes EYES` | Cowsay eye string, e.g. `@@` or `$$` |
+| `-h, --help` | Show help message |
+
+### Examples
+
+```bash
+# Default
 ./mufasaSays
+
+# Use your username
+./mufasaSays -n "$USER"
+
+# Crazy eyes
+./mufasaSays -e "@@"
+
+# Combined
+./mufasaSays -n Xavier -e "$$"
 ```
 
 Example output:
 
 ```
  __________________________________
-/ Look, Simba. Everything the light \
-\ touches is our kingdom.           /
+/ Look, Xavier. Everything the      \
+\ light touches is our kingdom.     /
  ----------------------------------
        \    ____
         \  /    \
           | ^__^ |
-          | (oo) |______
+          | ($$) |______
           | (__) |      )\/\
            \____/|----w |
                 ||     ||
@@ -26,23 +50,13 @@ Example output:
 	         Moofasa
 ```
 
-Run it every time you open your terminal by adding this to your `.bashrc`:
+### Terminal Integration
+
+Run on every terminal launch by adding to `.bashrc`:
 
 ```bash
-/path/to/mufasaSays
+/path/to/mufasaSays -n "$USER"
 ```
-
-## Customization
-
-Change "Simba" to your username by uncommenting line 7 in the script:
-
-```bash
-# Simba="$USER"
-```
-
-Or set it to any name by editing line 6.
-
-To change the cow's eyes, see `man cowsay`.
 
 ## Requirements
 

@@ -3,26 +3,64 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-Simba="Simba"
-# Simba="$USER"
+usage() {
+    cat <<EOF
+Usage: $(basename "$0") [OPTIONS]
+
+Display wisdom from Mufasa.
+
+Options:
+    -n, --name NAME    Name to use in quotes (default: Simba)
+    -e, --eyes EYES    Cowsay eye string, e.g. "@@" or "$$"
+    -h, --help         Show this help message
+EOF
+}
+
+name="Simba"
+eyes=""
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -n|--name)
+            name="$2"
+            shift 2
+            ;;
+        -e|--eyes)
+            eyes="$2"
+            shift 2
+            ;;
+        -h|--help)
+            usage
+            exit 0
+            ;;
+        *)
+            echo "Unknown option: $1" >&2
+            usage >&2
+            exit 1
+            ;;
+    esac
+done
 
 says=(
-    "You have forgotten who you are and so have forgotten me. Look inside yourself, $Simba. You are more than what you have become. You must take your place in the Circle of Life."
-    "$Simba, you have forgotten me."
+    "You have forgotten who you are and so have forgotten me. Look inside yourself, $name. You are more than what you have become. You must take your place in the Circle of Life."
+    "$name, you have forgotten me."
     "Remember who you are. You are my son and the one true king. Remember who you are."
     "Remember..."
-    "$Simba, let me tell you something my father told me. Look at the stars. The great kings of the past look down on us from those stars."
+    "$name, let me tell you something my father told me. Look at the stars. The great kings of the past look down on us from those stars."
     "So whenever you feel alone, just remember that those kings will always be there to guide you. And so will I."
-    "Look, $Simba. Everything the light touches is our kingdom."
-    "A king's time as ruler rises and falls like the sun. One day, $Simba, the sun will set on my time here, and will rise with you as the new king."
-    "$Simba, I'm very disappointed in you."
-    "$Simba, I'm only brave when I have to be. Being brave doesn't mean you go looking for trouble."
+    "Look, $name. Everything the light touches is our kingdom."
+    "A king's time as ruler rises and falls like the sun. One day, $name, the sun will set on my time here, and will rise with you as the new king."
+    "$name, I'm very disappointed in you."
+    "$name, I'm only brave when I have to be. Being brave doesn't mean you go looking for trouble."
     "That hairball is my son. And *your* future king."
     "Everything you see exists together in a delicate balance. As king, you need to understand that balance and respect all the creatures, from the crawling ant to the leaping antelope."
     "When we die, our bodies become the grass, and the antelope eat the grass. And so we are all connected in the great Circle of Life."
-    "That's beyond our borders. You must never go there, $Simba."
+    "That's beyond our borders. You must never go there, $name."
     "Scar! Broth-brother, help me!"
     "Oh, there's more to being king than... getting your way all the time."
 )
 
-cowsay -f "$SCRIPT_DIR/moofasa.cow" "${says[RANDOM % ${#says[@]}]}"
+cowsay_args=(-f "$SCRIPT_DIR/moofasa.cow")
+[[ -n "$eyes" ]] && cowsay_args+=(-e "$eyes")
+
+cowsay "${cowsay_args[@]}" "${says[RANDOM % ${#says[@]}]}"
