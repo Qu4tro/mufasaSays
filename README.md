@@ -1,20 +1,19 @@
-Mufasa Says
-==========
+# Mufasa Says
 
-MufasaSays is a small bash script that uses cowsay and its default moofasa .cow file, to display true wisdom. 
+A bash script that uses cowsay with the moofasa cow file to display wisdom from The Lion King.
 
+## Usage
 
-Usage
-----------
+```bash
+./mufasaSays
+```
 
-Just run the mufasaSays file.
+Example output:
 
 ```
-$ ./mufasaSays
-
  __________________________________
 / Look, Simba. Everything the light \
-\ touches is our kingdom.          /
+\ touches is our kingdom.           /
  ----------------------------------
        \    ____
         \  /    \
@@ -24,38 +23,33 @@ $ ./mufasaSays
            \____/|----w |
                 ||     ||
 
+	         Moofasa
 ```
 
-You can also run it every time you open your terminal by adding this line to your .bashrc:
+Run it every time you open your terminal by adding this to your `.bashrc`:
+
+```bash
+/path/to/mufasaSays
 ```
-/path/to/file/mufasaSays
+
+## Customization
+
+Change "Simba" to your username by uncommenting line 7 in the script:
+
+```bash
+# Simba="$USER"
 ```
 
-Extra
----------
+Or set it to any name by editing line 6.
 
-You can change "Simba" to your user name by de-commenting the second line. If you want to change the name to something else, just change the first line.  
+To change the cow's eyes, see `man cowsay`.
 
-You can also change your moofasa appearance by changing its .cow at `/usr/share/cowfile/cows/moosafa.cow` .  
+## Requirements
 
-And if you want to change its eyes, have fun with `man cowsay`.
+- [cowsay](https://github.com/tnalpgge/rank-amateur-cowsay)
 
+## Credits
 
-Troubleshoot
----------
-
-`cowsay: command not found`  
-[Install it.](https://github.com/schacon/cowsay)
-
-`cowsay: Could not find your cowfile!`  
-[Download it](https://github.com/schacon/cowsay/blob/master/cows/moofasa.cow) and move it to `/usr/share/cowfiles/cows/moosafa.cow`. This folder might change on your system, but should be something similar.
-
-Thank you
----------
-Cowsay devs.
-
-Lion King crew.
-
-And to the person who posted the [script online](http://www.angelfire.com/movies/disneybroadway/lionkingscript2.html).
-
-
+- Cowsay developers
+- The Lion King crew
+- [The script source](http://www.angelfire.com/movies/disneybroadway/lionkingscript2.html)
